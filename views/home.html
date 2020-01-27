@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ @title }}</title>
+</head>
+<body>
+    <h1>{{ @title }}</h1>
+    <p>{{ @temp }}</p>
+    <p>I like {{ @color }}</p>
+    <p>My first bookmark is {{ @bookmarks[0] }}</p>
+    <ul>
+        <repeat group="{{ @bookmarks }}" value="{{ @bookmark }}">
+            <li><a href="{{ @bookmark }}">{{ str_replace('http://', '', @bookmark) }}</a></li>
+        </repeat>
+    </ul>
+
+    <p><strong>Dessert Options</strong></p>
+    <repeat group="{{ @desserts }}" key="{{ @key }}" value="{{ @value }}">
+        <input type="checkbox" name="desserts[]" value="{{ @key }}">{{ @key }}<br>
+    </repeat>
+</body>
+</html>
