@@ -34,6 +34,10 @@ $f3->route('GET /', function($f3) {
     // define an associative array of desserts
     $f3->set('desserts', array('chocolate' => 'Chocolate Mousse', 'vanilla' => 'Vanilla Custard', 'strawberry' => 'Strawberry Shortcake'));
 
+    // conditional content
+    $f3->set('preferredCustomer', true);
+    $f3->set('lastLogin', strtotime('-1 week'));
+
     // create a new view object by instantiating the fat-free templating class
     $view = new Template();
 

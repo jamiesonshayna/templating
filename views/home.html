@@ -17,10 +17,17 @@
             <li><a href="{{ @bookmark }}">{{ str_replace('http://', '', @bookmark) }}</a></li>
         </repeat>
     </ul>
-
     <p><strong>Dessert Options</strong></p>
     <repeat group="{{ @desserts }}" key="{{ @key }}" value="{{ @value }}">
         <input type="checkbox" name="desserts[]" value="{{ @key }}">{{ @key }}<br>
-    </repeat>
+    </repeat><br>
+    <h3>Message</h3>
+    <check if="{{ @preferredCustomer}}">
+        <strong>Thank you for being a preferred customer!</strong><br>
+    </check>
+    <check if="{{ @lastLogin > strtotime('-1 month') }}">
+        <true>Welcome back!</true>
+        <false>It's been a while!</false>
+    </check>
 </body>
 </html>
